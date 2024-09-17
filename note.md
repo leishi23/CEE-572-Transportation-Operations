@@ -34,3 +34,11 @@ $$ q = k \cdot \frac{L}{T} = k \cdot v $$
   - Constant headway: $h_i = h$, $q = \frac{1}{\bar{h}}$
 - **Homogeneous Traffic Stream**: traffic flow does not change over space (but may change over time)
   - Constant spacing: $s_i = s$, $k = \frac{1}{\bar{s}}$
+
+### Multiple Vehicle Classes
+- For each class: $q_i = k_i \cdot v_i$
+- Flow and density are additive: $q = \sum_{i=1}^{n} q_i$, $k = \sum_{i=1}^{n} k_i$
+  - $q = \sum_{i=1}^{n} k_i \cdot v_i = k \sum_{i=1}^{n} \frac{k_i}{k} \cdot v_i = k \cdot \bar{v}_s$, where $\bar{v}_s$ is the average speed weighted by density (space-mean speed).
+- **Space-mean speed**: $\bar{v}_s = \frac{\sum_{i=1}^{n} k_i \cdot v_i}{k}$ average speed weighted by density and measured across all vehicles on segment $L$ at time $t$.
+- **Time-mean speed**: $\bar{v}_t = \frac{\sum_{i=1}^{n} q_i \cdot v_i}{q}$ average speed weighted by flow and measured across all vehicles during time $T$ at location $x$.
+- $\bar{v}_t \geq \bar{v}_s$ because $\bar{v}_t = \frac{1}{q} \sum_{i=1}^{n} q_i \cdot v_i = \frac{1}{k\cdot \bar{v}_s} \sum_{i=1}^{n} k_i \cdot v_i^2 = \frac{1}{\bar{v}_s} (\frac{1}{k} \sum_{i=1}^{n} k_i \cdot v_i^2) \geq \frac{1}{\bar{v}_s} (\frac{1}{k} \sum_{i=1}^{n} k_i \cdot v_i)^2 = \frac{1}{\bar{v}_s} (\bar{v}_s)^2 = \bar{v}_s$
